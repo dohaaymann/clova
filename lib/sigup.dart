@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,6 +19,8 @@ class _signupState extends State<signup> {
   var _phone=TextEditingController();
   var _pass=TextEditingController();
   var _conpass=TextEditingController();
+
+  var auth=FirebaseAuth.instance;
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
@@ -34,7 +37,7 @@ class _signupState extends State<signup> {
                   SizedBox(height:15,),
                   textfield("Birth Date",_birth),
                   SizedBox(height:15,),
-                  TextFormField(obscureText: obscure,controller:_pass,
+                  TextFormField(obscureText: obscure,controller:_pass,style: TextStyle(fontSize:22),
                     decoration:InputDecoration(
                       hintText:"Password",suffixIcon:IconButton(icon: !obscure
                         ? Icon(Icons.remove_red_eye, color:Color(0xffE73794))
@@ -54,7 +57,7 @@ class _signupState extends State<signup> {
                     ),
                   ) ,
                   SizedBox(height:15,),
-                  TextFormField(obscureText: c_obscure,controller: _conpass,
+                  TextFormField(obscureText: c_obscure,controller: _conpass,style: TextStyle(fontSize:22),
                     decoration:InputDecoration(
                       hintText:"Confirm Password",suffixIcon:IconButton(icon: !c_obscure
                         ? Icon(Icons.remove_red_eye, color:Color(0xffE73794))
@@ -74,7 +77,16 @@ class _signupState extends State<signup> {
                     ),
                   ) ,
                   SizedBox(height:35,),
-                  InkWell(onTap: (){},child:Container(width: 350,height: 60,alignment: Alignment.center,
+                  InkWell(onTap: ()async{
+                    print("signup");
+                    var user=await auth.createUserWithEmailAndPassword(email:_phone.text, password:_pass.text);
+                    if(user!=null){
+                      print("-------------");
+                      print("email: "+"${_phone.text}");
+                      print("pass: "+"${_pass.text}");
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context) => home(),));
+                    }
+                  },child:Container(width: 350,height: 60,alignment: Alignment.center,
                     decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(35)),
                       gradient: LinearGradient(
                         begin: Alignment.topRight,

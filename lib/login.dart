@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:walid_project/sigup.dart';
 import 'package:walid_project/widgets/textfield.dart';
 
@@ -14,6 +18,7 @@ class _loginState extends State<login> {
   @override
   var _phone=TextEditingController();
   var _pass=TextEditingController();
+  var auth=FirebaseAuth.instance;
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset:false,
@@ -27,7 +32,7 @@ class _loginState extends State<login> {
                   SizedBox(height:25,),
                   textfield("Phone",_phone),
                   SizedBox(height:20,),
-                  TextFormField(obscureText: obscure,controller: _pass,
+                  TextFormField(obscureText: obscure,controller: _pass,style: TextStyle(fontSize:22),
                     decoration:InputDecoration(
                       hintText:"Password",suffixIcon:IconButton(icon: !obscure
                         ? Icon(Icons.remove_red_eye, color:Color(0xffE73794))
@@ -49,7 +54,28 @@ class _loginState extends State<login> {
                   Align(alignment:Alignment.topRight,child: TextButton(onPressed: (){}, child:
                   Text("Forget Password?",style: TextStyle(fontSize:13,color: Color(0xffE73794)),))),
                   SizedBox(height: 50,),
-                  InkWell(onTap: (){},child:Container(width: 350,height: 60,alignment: Alignment.center,
+                  InkWell(onTap: ()async{
+                    print("login");
+                    var user=await auth.signInWithEmailAndPassword(email:_phone.text, password: _pass.text);
+                    try {
+                      final credential = await auth.signInWithEmailAndPassword(email:_phone.text, password: _pass.text);
+                    } on FirebaseAuthException catch (e) {
+                      if (e.code == 'user-not-found') {
+                        print('No user found for that email.');
+                      } else if (e.code == 'wrong-password') {
+                        print('Wrong password provided for that user.');
+                      }}
+                    if(user!=null){
+                      print("-------------");
+                    print("email: "+"${_phone.text}");
+                    print("pass: "+"${_pass.text}");
+                      // Navigator.of(context).pushNamed("home");
+                    }
+                    else{
+                      Get.snackbar("Erorr","Please fill out this fields",backgroundColor: Colors.red,colorText: Colors.white);
+                    }
+
+                  },child:Container(width: 350,height: 60,alignment: Alignment.center,
                     decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(35)),
                       gradient: LinearGradient(
                         begin: Alignment.topRight,

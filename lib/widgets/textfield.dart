@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget textfield(String hinttext,TextEditingController controller) {
-  return TextFormField(controller:controller ,
+  return TextFormField(controller:controller ,style: TextStyle(fontSize:22),
     decoration:InputDecoration(
       hintText:hinttext,
       hintStyle: TextStyle(

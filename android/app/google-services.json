@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "53492629489",
+    "project_id": "walid-project-60fee",
+    "storage_bucket": "walid-project-60fee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53492629489:android:6b206a5f403f24a481ce50",
+        "android_client_info": {
+          "package_name": "com.example.walid_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfuEPX7D-9iszwKLtL84_tIXgEnYVuxwg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
