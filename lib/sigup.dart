@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:walid_project/login.dart';
 import 'package:walid_project/widgets/textfield.dart';
 
@@ -16,7 +18,7 @@ class _signupState extends State<signup> {
   @override
   var _name=TextEditingController();
   var _birth=TextEditingController();
-  var _phone=TextEditingController();
+  var _email=TextEditingController();
   var _pass=TextEditingController();
   var _conpass=TextEditingController();
 
@@ -33,7 +35,7 @@ class _signupState extends State<signup> {
                 children: [
                   textfield("Full Name",_name),
                   SizedBox(height:15,),
-                  textfield("Phone",_phone),
+                  textfield("Email",_email),
                   SizedBox(height:15,),
                   textfield("Birth Date",_birth),
                   SizedBox(height:15,),
@@ -56,35 +58,32 @@ class _signupState extends State<signup> {
 
                     ),
                   ) ,
-                  SizedBox(height:15,),
-                  TextFormField(obscureText: c_obscure,controller: _conpass,style: TextStyle(fontSize:22),
-                    decoration:InputDecoration(
-                      hintText:"Confirm Password",suffixIcon:IconButton(icon: !c_obscure
-                        ? Icon(Icons.remove_red_eye, color:Color(0xffE73794))
-                        :FaIcon(CupertinoIcons.eye_slash,color:Color(0xffE73794)),
-                      onPressed: () {
-                        setState(() {
-                          c_obscure = !c_obscure;
-                        });
-                      },),
-                      hintStyle: TextStyle(
-                          fontSize: 22,fontWeight:FontWeight.bold,color:Color(0xffE73794)),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 3, color:Color(0xffE73794)),
-                      ),
-
-                    ),
-                  ) ,
-                  SizedBox(height:35,),
+                  SizedBox(height:50),
                   InkWell(onTap: ()async{
-                    print("signup");
-                    var user=await auth.createUserWithEmailAndPassword(email:_phone.text, password:_pass.text);
-                    if(user!=null){
-                      print("-------------");
-                      print("email: "+"${_phone.text}");
-                      print("pass: "+"${_pass.text}");
-                      // Navigator.of(context).push(MaterialPageRoute(builder: (context) => home(),));
+                    if (_email.text.isEmpty || _pass.text.isEmpty||_birth.text.isEmpty||_name.text.isEmpty) {
+                      print("emptyyyy");
+                      Get.snackbar("Erorr", "Please fill out this fields",
+                          backgroundColor: Colors.red,
+                          colorText: Colors.white);
+
+                      return null;
+                    } else {
+                      var user;
+                      try {
+                        user = await auth.createUserWithEmailAndPassword(email:_email.text, password:_pass.text)
+                            .catchError((err) {
+                          return Get.snackbar("Error",err.message,backgroundColor: Colors.red,colorText:Colors.white);
+                        });
+                      } on FirebaseAuthException catch (e) {
+                      Get.snackbar("Error",e.toString(),backgroundColor: Colors.red,colorText:Colors.white);
+
+                      }
+                      if(user!=null){
+                        print("------account created-------");
+                        print("email: "+"${_email.text}");
+                        print("pass: "+"${_pass.text}");
+                        // Navigator.of(context).push(MaterialPageRoute(builder: (context) => home(),));
+                      }
                     }
                   },child:Container(width: 350,height: 60,alignment: Alignment.center,
                     decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(35)),
