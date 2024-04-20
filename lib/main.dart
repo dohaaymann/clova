@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:walid_project/climactericscreen.dart';
+import 'package:walid_project/homescreen.dart';
 import 'SplashScreen.dart';
 import 'login.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,7 +23,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Splash_Screen(),
+      initialRoute: climactericscreen.Routname,
+      routes: {
+        Splash_Screen.routname:(context)=>Splash_Screen(),
+        homescreen.routname:(context)=>homescreen(),
+        climactericscreen.Routname:(context)=>climactericscreen(),
+      }
+
+
     );
   }
 }

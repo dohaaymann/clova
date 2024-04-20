@@ -4,6 +4,7 @@ import 'Onboarding.dart';
 
 
 class Splash_Screen extends StatefulWidget {
+  static const String routname='splashscreen';
 
 
   @override
