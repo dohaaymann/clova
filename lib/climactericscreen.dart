@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:walid_project/climactericquestions.dart';
+import 'package:walid_project/homescreen.dart';
 
 class climactericscreen extends StatelessWidget{
   static const String Routname='climactericscreen';
@@ -10,8 +11,12 @@ class climactericscreen extends StatelessWidget{
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading:Icon(Icons.arrow_back,
-        color: Colors.black,),
+        leading:IconButton( icon: Icon(Icons.arrow_back,
+        color: Colors.black,), onPressed: () {
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>homescreen()));
+        },),
+
+
         title:Row(
           children: [
             SizedBox(width: 25,),
