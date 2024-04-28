@@ -68,7 +68,7 @@ class _homescreenState extends State<homescreen> {
 
                              textAlign:TextAlign.center , ),
 
-<<<<<<< HEAD
+
                            InkWell (
                                child:  tests(text1:'Climacteric', image1: 'image/climacteric.png',
                                ),
@@ -80,8 +80,8 @@ class _homescreenState extends State<homescreen> {
                            child:  Image.asset('image/homescreenimage.jpeg',
                            fit: BoxFit.cover,)
                        )
-=======
-                         InkWell (
+
+                        , InkWell (
                              child:  tests(text1:'Climacteric', image1: 'image/climacteric.png',
                              ),
                            onTap:(){ Navigator.push(context,MaterialPageRoute(builder: (context)=>climactericscreen()));
@@ -93,7 +93,7 @@ class _homescreenState extends State<homescreen> {
                          fit: BoxFit.cover,)
                      ),
 
->>>>>>> origin/main
+
 
                                   ]),
                 ),
