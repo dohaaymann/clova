@@ -1,5 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:walid_project/edit_profile.dart';
+import 'package:walid_project/login.dart';
 
 import 'homescreen.dart';
 
@@ -46,7 +50,7 @@ class _profileState extends State<profile> {
                 padding: EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    inkwell(Icon(Icons.messenger,color: Colors.pinkAccent,size:25), "Contact us for support"),
+                    inkwell(Icon(Icons.messenger,color: Colors.pinkAccent,size:25), "Contact us for support",(){}),
                     SizedBox(height: 20,),
                     InkWell(
                       child:Row(children: [
@@ -79,11 +83,15 @@ class _profileState extends State<profile> {
                       ],),
                     )    ,
                     SizedBox(height:20,),
-                    inkwell(Icon(Icons.star,color: Colors.pinkAccent,size: 30,), "Rate the app"),
+                    inkwell(Icon(Icons.star,color: Colors.pinkAccent,size: 30,), "Rate the app",(){}),
                     SizedBox(height:20,),
-                    inkwell(Icon(Icons.share_rounded,color: Colors.pinkAccent,size: 30,), "Share the app"),
+                    inkwell(Icon(Icons.share_rounded,color: Colors.pinkAccent,size: 30,),"Share the app",(){}),
                     SizedBox(height:20,),
-                    inkwell(Icon(Icons.logout_rounded,color: Colors.pinkAccent,size: 30), "Log out"),
+                    inkwell(Icon(Icons.logout_rounded,color: Colors.pinkAccent,size: 30),"Log out",()async{
+                      await FirebaseAuth.instance.signOut();
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) =>login(),));
+
+                    }),
                   ],
                 ),
               ),
@@ -92,8 +100,9 @@ class _profileState extends State<profile> {
     );
   }
 }
-Widget inkwell(Icon icon,String text){
+Widget inkwell(Icon icon,String text,var ontap){
   return InkWell(
+    onTap: ontap,
     child:Row(children: [
       // Icon(icon,color: Colors.pinkAccent,),
       icon,

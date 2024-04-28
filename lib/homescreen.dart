@@ -47,39 +47,41 @@ class _homescreenState extends State<homescreen> {
 
                 body:
 
-                Column(
-                    children: [
-                      SizedBox(height: 120,),
-                      locationfield(),
+                SingleChildScrollView(
+                  child: Column(
+                      children: [
+                        SizedBox(height: 120,),
+                        locationfield(),
 
-                         // yesandnoanswer(txt:'See The popular Hospitals Near Me', clicked:(){
+                           // yesandnoanswer(txt:'See The popular Hospitals Near Me', clicked:(){
 
 
-                          //})//
+                            //})//
 
-                          Text('Choose A Test',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold
+                            Text('Choose A Test',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold
 
-                          ),
+                            ),
 
-                           textAlign:TextAlign.center , ),
+                             textAlign:TextAlign.center , ),
 
-                         InkWell (
-                             child:  tests(text1:'Climacteric', image1: 'image/climacteric.png',
-                             ),
-                           onTap:(){ Navigator.push(context,MaterialPageRoute(builder: (context)=>climactericscreen()));
-                         } ),
-                         InkWell( child: tests(text1: 'Polycystic Ovary Syndrome', image1:'image/pco.png'),
-                             onTap: (){ Navigator.push(context,MaterialPageRoute(builder:(context)=>pcoscreen1()));}, ),
-                     Container(
-                         child:  Image.asset('image/homescreenimage.jpeg',
-                         fit: BoxFit.cover,)
-                     )
+                           InkWell (
+                               child:  tests(text1:'Climacteric', image1: 'image/climacteric.png',
+                               ),
+                             onTap:(){ Navigator.push(context,MaterialPageRoute(builder: (context)=>climactericscreen()));
+                           } ),
+                           InkWell( child: tests(text1: 'Polycystic Ovary Syndrome', image1:'image/pco.png'),
+                               onTap: (){ Navigator.push(context,MaterialPageRoute(builder:(context)=>pcoscreen1()));}, ),
+                       Container(
+                           child:  Image.asset('image/homescreenimage.jpeg',
+                           fit: BoxFit.cover,)
+                       )
 
-                                ]),
+                                  ]),
+                ),
 
 
 

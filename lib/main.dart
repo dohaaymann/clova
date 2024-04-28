@@ -24,9 +24,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute:homescreen.Routname,
+      // initialRoute:homescreen.Routname,
+        home: login(),
       routes: {
         Splash_Screen.Routname:(context)=>Splash_Screen(),
         homescreen.Routname:(context)=>homescreen(),

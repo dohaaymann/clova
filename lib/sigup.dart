@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:walid_project/login.dart';
 import 'package:walid_project/widgets/textfield.dart';
+
+import 'homescreen.dart';
 
 class signup extends StatefulWidget {
   const signup({super.key});
@@ -20,9 +23,11 @@ class _signupState extends State<signup> {
   var _birth=TextEditingController();
   var _email=TextEditingController();
   var _pass=TextEditingController();
-  var _conpass=TextEditingController();
+  var _phone=TextEditingController();
 
   var auth=FirebaseAuth.instance;
+  var user= FirebaseFirestore.instance.collection("users");
+
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
@@ -36,6 +41,8 @@ class _signupState extends State<signup> {
                   textfield("Full Name",_name),
                   SizedBox(height:15,),
                   textfield("Email",_email),
+                  SizedBox(height:15,),
+                  textfield("Phone number",_phone),
                   SizedBox(height:15,),
                   textfield("Birth Date",_birth),
                   SizedBox(height:15,),
@@ -60,19 +67,30 @@ class _signupState extends State<signup> {
                   ) ,
                   SizedBox(height:50),
                   InkWell(onTap: ()async{
-                    if (_email.text.isEmpty || _pass.text.isEmpty||_birth.text.isEmpty||_name.text.isEmpty) {
+                    if (_email.text.isEmpty || _pass.text.isEmpty||_birth.text.isEmpty||_name.text.isEmpty||_phone.text.isEmpty) {
                       print("emptyyyy");
                       Get.snackbar("Erorr", "Please fill out this fields",
                           backgroundColor: Colors.red,
                           colorText: Colors.white);
 
                       return null;
-                    } else {
-                      var user;
+                    }else if(_phone.text.length!=11){
+                      Get.snackbar("Erorr", "Please enter a valid number",
+                          backgroundColor: Colors.red,
+                          colorText: Colors.white);
+                    }
+                    else {
+                      var userr;
                       try {
-                        user = await auth.createUserWithEmailAndPassword(email:_email.text, password:_pass.text)
-                            .catchError((err) {
-                          return Get.snackbar("Error",err.message,backgroundColor: Colors.red,colorText:Colors.white);
+                        userr = await auth.createUserWithEmailAndPassword(email:_email.text, password:_pass.text).then((value)async{
+                          await user.doc("${_email.text}").set({
+                            'name':"${_name.text}",
+                            'password':"${_pass.text}",
+                            'Birth_date':"${_birth.text}",
+                            'phone_number':"${_phone.text}",
+                          });
+                        }).catchError((err) {
+                          // return Get.snackbar("Error",err.message,backgroundColor: Colors.red,colorText:Colors.white);
                         });
                       } on FirebaseAuthException catch (e) {
                       Get.snackbar("Error",e.toString(),backgroundColor: Colors.red,colorText:Colors.white);
@@ -82,7 +100,7 @@ class _signupState extends State<signup> {
                         print("------account created-------");
                         print("email: "+"${_email.text}");
                         print("pass: "+"${_pass.text}");
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (context) => home(),));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => homescreen(),));
                       }
                     }
                   },child:Container(width: 350,height: 60,alignment: Alignment.center,

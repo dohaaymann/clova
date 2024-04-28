@@ -8,6 +8,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:walid_project/sigup.dart';
 import 'package:walid_project/widgets/textfield.dart';
 
+import 'homescreen.dart';
+
 class login extends StatefulWidget {
   const login({super.key});
 
@@ -130,7 +132,7 @@ class _loginState extends State<login> {
                           print("------ login successfuly-------");
                           print("email: " + "${_email.text}");
                           print("pass: " + "${_pass.text}");
-                          // Navigator.of(context).pushNamed("home");
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => homescreen(),));
                         }
                       }
                     },

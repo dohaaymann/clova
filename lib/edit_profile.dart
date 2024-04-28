@@ -1,4 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:walid_project/homescreen.dart';
 import 'package:walid_project/widgets/textfield2.dart';
 
 class edit_profile extends StatefulWidget {
@@ -13,8 +17,23 @@ class _edit_profileState extends State<edit_profile> {
   var _name=TextEditingController();
   var _phone=TextEditingController();
   var _password=TextEditingController();
+  var auth=FirebaseAuth.instance;
+  var user= FirebaseFirestore.instance.collection("users");
+  get_date()async{
+    var docSnapshot = await user.doc(auth.currentUser!.email).get();
+    var data = docSnapshot.data();
+   _password.text = data?['password'];
+   _name.text = data?['name'];
+   _phone.text = data?['phone_number'];
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    get_date();
+    super.initState();
+  }
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  Scaffold(resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor:Color(0xffFDD8DF),title: Text("Edit Profile",style: TextStyle(fontWeight: FontWeight.bold),),centerTitle:true,),
       body:Container( decoration: BoxDecoration(
@@ -41,20 +60,36 @@ class _edit_profileState extends State<edit_profile> {
                     child: Column( crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("Name",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                        SizedBox(height:50,child: TextFormField(controller:_name,decoration: InputDecoration(
+                        SizedBox(height:50,child: TextFormField(controller:_name,style:TextStyle(fontSize:20),decoration: InputDecoration(
                             border: OutlineInputBorder(),hintText:"name"),),),
                         SizedBox(height: 20,),
                         Text("Phone Number",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                        SizedBox(height:50,child: TextFormField(controller:_phone,decoration: InputDecoration(
+                        SizedBox(height:50,child: TextFormField(controller:_phone,style:TextStyle(fontSize:20),decoration: InputDecoration(
                             border: OutlineInputBorder(),hintText:"Phone Number"),),),
                         SizedBox(height: 20,),
                         Text("Password",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                        SizedBox(height:50,child: TextFormField(controller:_password,decoration: InputDecoration(
+                        SizedBox(height:50,child: TextFormField(controller:_password,style:TextStyle(fontSize:20),decoration: InputDecoration(
                             border: OutlineInputBorder(),hintText:"Password"),),),
                         SizedBox(height: 50,),
                         Padding(
                           padding: const EdgeInsets.only(left:25),
-                          child: InkWell(onTap: (){},child:Container(width: 300,height: 60,alignment: Alignment.center,
+                          child: InkWell(onTap: ()async{
+                            await user.doc(auth.currentUser!.email).update(
+                                {
+                                  'name':"${_name.text}",
+                                  'password':"${_password.text}",
+                                  'phone_number':"${_phone.text}",
+                                }).then((value) => Get.snackbar ("","Saved",backgroundColor: Colors.green,
+                                                              duration: Duration(seconds: 2),
+                                                              messageText: Text(
+                                                                  "Saved",
+                                                                  textAlign: TextAlign.center,
+                                                                  style: TextStyle(
+                                                                    color: Colors.white,
+                                                                    fontWeight: FontWeight.bold,
+                                                                    fontSize: 22,
+                                                                  ))));
+                          },child:Container(width: 300,height: 60,alignment: Alignment.center,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.all(Radius.circular(35)),
                               gradient: LinearGradient(
