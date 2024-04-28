@@ -41,6 +41,7 @@ dependencies:
   cloud_firestore: ^4.17.0
   get: ^4.6.6
   numberpicker: ^2.1.1
+  lottie: ^3.1.0
 
 
 dev_dependencies:

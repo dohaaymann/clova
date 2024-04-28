@@ -77,7 +77,8 @@ class _homescreenState extends State<homescreen> {
                      Container(
                          child:  Image.asset('image/homescreenimage.jpeg',
                          fit: BoxFit.cover,)
-                     )
+                     ),
+
 
                                 ]),
 

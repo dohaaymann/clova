@@ -4,6 +4,7 @@ import 'package:walid_project/edit_profile.dart';
 import 'homescreen.dart';
 
 class profile extends StatefulWidget {
+  static const String Routname='profile';
   const profile({Key? key}) : super(key: key);
 
   @override

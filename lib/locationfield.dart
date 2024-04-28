@@ -8,7 +8,8 @@ class locationfield extends StatefulWidget{
 
 class _locationfieldState extends State<locationfield> {
   @override
-  final locationlist=['Cairo','Giza','Alexandria','Beheira','Mansoura','Fayoum'];
+  final locationlist=['Cairo','Giza','Alexandria','Beheira','Mansoura','Fayoum','Minya','Suez','Port Said',
+  'Asyt','Hurghada','Sharkia','Tanta','Luxor','Aswan','Beni Suef'];
 
 
 

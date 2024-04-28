@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:walid_project/resultpco.dart';
 
 class report extends StatefulWidget {
+  static const String Routname='report';
 @override
 State<report> createState() => _ReportState();
 }

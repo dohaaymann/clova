@@ -5,6 +5,7 @@ class edit_profile extends StatefulWidget {
   const edit_profile({Key? key}) : super(key: key);
 
   @override
+  static const String Routname='editprofile';
   State<edit_profile> createState() => _edit_profileState();
 }
 

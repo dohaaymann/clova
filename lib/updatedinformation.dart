@@ -4,6 +4,7 @@ import 'homescreen.dart';
 
 class updatedinformation extends StatelessWidget{
   @override
+  static const String Routname='updatedinformation';
   Widget build(BuildContext context) {
     // TODO: implement build
     return   Container(
