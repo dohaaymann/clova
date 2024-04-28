@@ -4,6 +4,7 @@ import 'package:walid_project/climactericquestions.dart';
 
 class resultclimacteric extends StatefulWidget {
   const resultclimacteric({Key? key}) : super(key: key);
+  static const String Routname='resultclimacteric';
 
   @override
   State<resultclimacteric> createState() => _resultState();

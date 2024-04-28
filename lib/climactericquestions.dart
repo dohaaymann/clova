@@ -9,6 +9,7 @@ import 'package:walid_project/sendbutton.dart';
 
 
 class climactericquestions extends StatefulWidget{
+  static const String Routname='climactericquestions';
   @override
   State<climactericquestions> createState() => _climactericquestionsState();
 }

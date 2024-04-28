@@ -4,6 +4,7 @@ import 'package:walid_project/report.dart';
 import 'package:walid_project/yesandnoanswer.dart';
 
 class resultpco extends StatelessWidget{
+  static const String Routname='resultpco';
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

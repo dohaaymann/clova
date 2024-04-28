@@ -40,7 +40,12 @@ dependencies:
   firebase_auth: ^4.19.2
   cloud_firestore: ^4.17.2
   get: ^4.6.6
+<<<<<<< HEAD
   numberpicker: ^2.1.2
+=======
+  numberpicker: ^2.1.1
+  lottie: ^3.1.0
+>>>>>>> origin/main
 
 
 dev_dependencies:
