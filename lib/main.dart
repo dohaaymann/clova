@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:walid_project/ImageUploadScreen.dart';
 import 'package:walid_project/climactericquestions.dart';
 import 'package:walid_project/climactericscreen.dart';
 import 'package:walid_project/edit_profile.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       // initialRoute:homescreen.Routname,
-        home: login(),
+        initialRoute:homescreen.Routname,
       routes: {
         Splash_Screen.Routname:(context)=>Splash_Screen(),
         homescreen.Routname:(context)=>homescreen(),
@@ -48,7 +49,8 @@ class MyApp extends StatelessWidget {
         resultpco.Routname:(context)=>resultpco(),
         report.Routname:(context)=>report(),
         profile.Routname:(context)=>profile(),
-        edit_profile.Routname:(context)=>edit_profile()
+        edit_profile.Routname:(context)=>edit_profile(),
+        ImageUploadScreen.Routname:(context)=>ImageUploadScreen()
       }
 
 

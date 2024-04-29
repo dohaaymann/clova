@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:walid_project/ImageUploadScreen2.dart';
 import 'package:walid_project/pcoquestion3.dart';
 import 'package:walid_project/report.dart';
 import 'package:walid_project/yesandnoanswer.dart';
+
+import 'ImageUploadScreen.dart';
 
 class resultpco extends StatelessWidget{
   static const String Routname='resultpco';
@@ -37,7 +40,7 @@ class resultpco extends StatelessWidget{
         ),
         Center(
           child: InkWell(onTap: (){
-            Navigator.push(context,MaterialPageRoute(builder: (Context)=>report()));
+            Navigator.push(context,MaterialPageRoute(builder: (Context)=>ImageUploadScreen()));
           },child:Container(width: 300,height: 60,alignment: Alignment.center,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(35)),

@@ -72,7 +72,7 @@ class _pcoquestion3State extends State<pcoquestion3> {
         textAlign: TextAlign.center,
       ),
       SizedBox(height: 60,),
-          questionborder(question1: '3- Is Your Cycle Regular?'),
+          questionborder(question1: '5- Is Your Cycle Regular?'),
           Row(
               children: [
                 SizedBox(width: 70,),
@@ -92,7 +92,7 @@ class _pcoquestion3State extends State<pcoquestion3> {
                 })
 
               ]),
-          questionborder(question1: '4- Is There Excessive Hair Growth?'),
+          questionborder(question1: '6- Is There Excessive Hair Growth?'),
           Row(
               children: [
                 SizedBox(width: 70,),
@@ -109,7 +109,7 @@ class _pcoquestion3State extends State<pcoquestion3> {
                 })
 
               ]),
-          questionborder(question1: '5- Are There Pimples?'),
+          questionborder(question1: '7- Are There Pimples?'),
           Row(
               children: [
                 SizedBox(width: 70,),
@@ -127,7 +127,7 @@ class _pcoquestion3State extends State<pcoquestion3> {
                 })
 
               ]),
-          questionborder(question1: '6- Is there Skin Darkening?'),
+          questionborder(question1: '8- Is there Skin Darkening?'),
           Row(
               children: [
                 SizedBox(width: 70,),
