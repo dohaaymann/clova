@@ -26,18 +26,38 @@ class _resultState extends State<resultclimacteric> {
               child:
           Image.asset('image/climacteric.png')),
 
-        Center(
-          child: Text('*${result1}*',
-            style: TextStyle(
-              fontSize: 27,
-              fontWeight: FontWeight.bold,
+        Center( child :Column(
+          children: [
+           Center(
+             child: Text(' Your Climacteric Prediction Is:'
+                ,
+              style: TextStyle(
+                fontSize: 27,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+
+                       ),
+           ),
+            SizedBox(height: 20,),
+            Center(
+              child: Text('*${result1}*'
+                ,
+                style: TextStyle(
+                  fontSize: 27,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.pink
+                ),
+                textAlign: TextAlign.center,
+
+
+              ),
             ),
-            textAlign: TextAlign.center,
 
-          ),
-        )
+  ])
 
-      ],),),
+      ,),
+  ],),),
     );
   }
 }

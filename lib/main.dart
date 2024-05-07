@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:walid_project/ImageUploadScreen.dart';
+import 'package:walid_project/ImageUploadScreen2.dart';
 import 'package:walid_project/climactericquestions.dart';
 import 'package:walid_project/climactericscreen.dart';
 import 'package:walid_project/edit_profile.dart';
 import 'package:walid_project/homescreen.dart';
+import 'package:walid_project/lifestylechanges.dart';
 import 'package:walid_project/pcoquestion2.dart';
 import 'package:walid_project/pcoquestion3.dart';
 import 'package:walid_project/pcoscreen.dart';
@@ -34,7 +35,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      // initialRoute:homescreen.Routname,
         initialRoute:homescreen.Routname,
       routes: {
         Splash_Screen.Routname:(context)=>Splash_Screen(),
@@ -50,7 +50,8 @@ class MyApp extends StatelessWidget {
         report.Routname:(context)=>report(),
         profile.Routname:(context)=>profile(),
         edit_profile.Routname:(context)=>edit_profile(),
-        ImageUploadScreen.Routname:(context)=>ImageUploadScreen()
+        ImageUploadScreen2.Routname:(context)=>ImageUploadScreen2(),
+        lifestylechanges.Routname:(context)=>lifestylechanges(),
       }
 
 

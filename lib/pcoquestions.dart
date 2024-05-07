@@ -94,9 +94,31 @@ class _pcoquestionsState extends State<pcoquestions> {
     ),
       textAlign: TextAlign.center,
     ),
-        TextButton(onPressed:(){
-          Navigator.push(context,MaterialPageRoute(builder: (context)=>pcoquestion2()));
-    }, child:questionborder(question1: 'Next')
+        Center(
+          child: InkWell(onTap: (){
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>pcoquestion2()));
+          },child:Container(width: 300,height: 60,alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(35)),
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.yellow,
+                  Colors.orange,
+                  Color(0xffE73794),
+                ],
+              ),
+            ),
+            child: Text(
+              "Next",
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          ),
         ),
 
       ],

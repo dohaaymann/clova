@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:walid_project/ImageUploadScreen2.dart';
 import 'package:walid_project/pcoquestion3.dart';
-import 'package:walid_project/report.dart';
-import 'package:walid_project/yesandnoanswer.dart';
-
-import 'ImageUploadScreen.dart';
-
 class resultpco extends StatelessWidget{
   static const String Routname='resultpco';
   @override
@@ -20,15 +15,25 @@ class resultpco extends StatelessWidget{
         SizedBox(height:100,),
         Center(child: Image.asset('image/pco.png')),
         Center(
-          child: Text('*${result2}*',
+          child: Text(' Your Pco Prediction Is :',
             style: TextStyle(
               fontSize: 27,
               fontWeight: FontWeight.bold,
 
             ),
           ),
-        )
-       , SizedBox(height: 330,)
+        ),
+       SizedBox(height: 20,),
+        Center(
+          child: Text('*${result2}*',
+            style: TextStyle(
+              fontSize: 27,
+              fontWeight: FontWeight.bold,
+              color: Colors.pink
+
+            ),
+          ),
+        ), SizedBox(height: 330,)
         ,Center(
           child: Text('    Please Upload your ultrasound test for an accurate prediction',
             style: TextStyle(
@@ -40,7 +45,7 @@ class resultpco extends StatelessWidget{
         ),
         Center(
           child: InkWell(onTap: (){
-            Navigator.push(context,MaterialPageRoute(builder: (Context)=>ImageUploadScreen()));
+            Navigator.push(context,MaterialPageRoute(builder: (Context)=>ImageUploadScreen2()));
           },child:Container(width: 300,height: 60,alignment: Alignment.center,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(35)),

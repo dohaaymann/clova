@@ -116,15 +116,16 @@ class _climactericquestionsState extends State<climactericquestions> {
               }),
 
             ]),
-
         SizedBox(height: 70,),
-
-        Center(child: yesandnoanswer(txt: 'Send',clicked: (){
-
-          setState(() {
-    if (age1 == 'yes' && cycleregular1 == 'No' && cycleduration1 == 'No' &&
+        Center(child: InkWell(onTap: (){
+    setState(() {
+      if(age1==null||cycleregular1==null||cycleduration1==null||
+      cycleduration1==null){
+        result1='Please answer all of The Questions';
+      }
+    else if (age1 == 'yes' && cycleregular1 == 'No' && cycleduration1 == 'No' &&
     ovariandisorder1 == 'No') {
-     result1 = 'Likely in Climacteric Stage';
+    result1 = 'Likely in Climacteric Stage';
     } else
     if (age1 == 'yes' && ovariandisorder1 == 'yes' && cycleregular1 == 'No' &&
     cycleduration1 == 'No') {
@@ -136,10 +137,33 @@ class _climactericquestionsState extends State<climactericquestions> {
     result1 = 'Not in Climacteric Stage';
 
     }});
-          Navigator.push(context,MaterialPageRoute(builder: (context)=>resultclimacteric()));
-    }
-          ,)
 
+    Navigator.push(context,MaterialPageRoute(builder: (Context)=>resultclimacteric()));
+    }
+
+
+        ,child:Container(width: 300,height: 60,alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(35)),
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.yellow,
+                Colors.orange,
+                Color(0xffE73794),
+              ],
+            ),
+          ),
+          child: Text(
+            "Send",
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+        ),
         ),
 
 

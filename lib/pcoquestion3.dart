@@ -145,61 +145,78 @@ class _pcoquestion3State extends State<pcoquestion3> {
                 })
 
               ]),
+             SizedBox(height: 20,)
 
-
-         Center(child: yesandnoanswer(
-           txt: 'Send',
-           clicked: () {
-             setState(() {
-               if (cycleregularity == "No") {
-                 if (day > 7 || day <= 2) {
-                   pcopercent += 40;
-                 } else {
-                   pcopercent += 30;
-                 }
+        , Center(child: InkWell( onTap:() {
+           setState(() {
+             if (cycleregularity == "No") {
+               if (day > 7 || day <= 2) {
+                 pcopercent += 40;
                } else {
-                 if (day > 7 || day<= 2) {
-                   pcopercent += 10;
-                 }
+                 pcopercent += 30;
                }
-
-               if (hairgrowth == "yes") {
+             } else {
+               if (day > 7 || day <= 2) {
                  pcopercent += 10;
                }
+             }
+             if (hairgrowth == "yes") {
+               pcopercent += 10;
+             }
+             if (pimples == "yes") {
+               pcopercent += 8;
+             }
+             if (skindarkening == "yes") {
+               pcopercent += 8;
+             }
+             if (cycleregularity == "No") {
+               pcopercent += 8;
+             }
 
-               if (pimples == "yes") {
-                 pcopercent += 8;
-               }
-
-               if (skindarkening == "yes") {
-                 pcopercent += 8;
-               }
-
-               if (cycleregularity == "No") {
-                 pcopercent += 8;
-               }
-
-               if (BMI >= 23) {
-                 pcopercent += 6;
-               }
-
-               if (pcopercent >= 0 && pcopercent <= 15) {
-                 result2="Very low chance";
-               } else if (pcopercent >= 16 && pcopercent <= 30) {
-                 result2="Low chance";
-               } else if (pcopercent >= 31 && pcopercent <= 50) {
-                 result2="Below average";
-               } else if (pcopercent >= 51 && pcopercent <= 65) {
-                 result2="Above average";
-               } else if (pcopercent >= 66 && pcopercent <= 79) {
-                 result2="High chance";
-               } else if (pcopercent == 80) {
-                 result2="Very high chance";
-               }
-             });
-             Navigator.push(context,MaterialPageRoute(builder: (Context)=>resultpco()));
-
-           })),
+             if (BMI >= 23) {
+               pcopercent += 6;
+             }
+             if(cycleregularity==null||hairgrowth==null
+                 ||pimples==null||skindarkening==null){
+               result2 ='Please answer all of the questions';}
+             else if (pcopercent >= 0 && pcopercent <= 15) {
+               result2 = "Very low chance";
+             } else if (pcopercent >= 16 && pcopercent <= 30) {
+               result2 = "Low chance";
+             } else if (pcopercent >= 31 && pcopercent <= 50) {
+               result2 = "Below average";
+             } else if (pcopercent >= 51 && pcopercent <= 65) {
+               result2 = "Above average";
+             } else if (pcopercent >= 66 && pcopercent <= 79) {
+               result2 = "High chance";
+             } else if (pcopercent == 80 || pcopercent > 80) {
+               result2 = "Very high chance";
+             }
+           });
+           Navigator.push(context,MaterialPageRoute(builder: (Context)=>resultpco()));
+         } ,
+           child:Container(width: 300,height: 60,alignment: Alignment.center,
+           decoration: BoxDecoration(
+             borderRadius: BorderRadius.all(Radius.circular(35)),
+             gradient: LinearGradient(
+               begin: Alignment.topRight,
+               end: Alignment.bottomLeft,
+               colors: [
+                 Colors.yellow,
+                 Colors.orange,
+                 Color(0xffE73794),
+               ],
+             ),
+           ),
+           child: Text(
+             "Send",
+             style: TextStyle(
+                 fontSize: 20,
+                 color: Colors.white,
+                 fontWeight: FontWeight.bold),
+           ),
+         ),
+         ),),
       ])
     );
 

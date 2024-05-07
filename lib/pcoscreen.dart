@@ -8,34 +8,34 @@ class pcoscreen1 extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        leading:IconButton(
-          icon: Icon(Icons.arrow_back,
-          color: Colors.black,),
-          onPressed:(){
-            Navigator.push(context,MaterialPageRoute(builder: (context)=>homescreen()));
-            
-          },
-        ) ,
-        title: Row(
-          children: [
-
-            Image.asset('image/pco.png'),
-            SizedBox(width: 6,),
-            Text('Polycystic Ovary Syndrome',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),)
-            
-            
-          ],
-        ),
-      ),
-      body:pcoquestions(),
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          leading:IconButton(
+            icon: Icon(Icons.arrow_back,
+            color: Colors.black,),
+            onPressed:(){
+              Navigator.push(context,MaterialPageRoute(builder: (context)=>homescreen()));
+              
+            },
+          ) ,
+          title:  Row(
+            children: [
       
-    );
+              Image.asset('image/pco.png'),
+              SizedBox(width: 6,),
+              Text('Polycystic Ovary Syndrome',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),)
+              
+              
+            ],
+          ),
+        ),
+        body:pcoquestions(),
+        );
+
   }
 
 }

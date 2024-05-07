@@ -27,8 +27,8 @@ class _pcoquestion2State extends State<pcoquestion2> {
           icon: Icon(Icons.arrow_back,
             color: Colors.black,),
           onPressed:(){
-            Navigator.push(context,MaterialPageRoute(builder: (context)=>pcoscreen1()));
-
+            Navigator.pop(context,MaterialPageRoute(builder:
+                (context)=>pcoscreen1()));
           },
         ) ,
         title: Row(
@@ -88,9 +88,32 @@ class _pcoquestion2State extends State<pcoquestion2> {
             textAlign: TextAlign.center,
 
           ),
-          TextButton(onPressed:(){
-            Navigator.push(context,MaterialPageRoute(builder: (context)=>pcoquestion3()));
-          }, child:questionborder(question1: 'Next')
+          Center(
+            child: InkWell(onTap: (){
+              Navigator.push(context,MaterialPageRoute(builder:
+                  (context)=>pcoquestion3()));
+            },child:Container(width: 300,height: 60,alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(35)),
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Colors.yellow,
+                    Colors.orange,
+                    Color(0xffE73794),
+                  ],
+                ),
+              ),
+              child: Text(
+                "Next",
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            ),
           ),
           
 

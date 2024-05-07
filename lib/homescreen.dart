@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:walid_project/climactericscreen.dart';
+import 'package:walid_project/lifestylechanges.dart';
 import 'package:walid_project/locationfield.dart';
 import 'package:walid_project/pcoscreen.dart';
 import 'package:walid_project/profile.dart';
@@ -133,6 +134,13 @@ class NavigationDrawer extends StatelessWidget{
        title: Text('Updated Info'),
          onTap: ()=>
              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>updatedinformation()))
+
+     ),
+     ListTile(
+         leading: Icon(Icons.tips_and_updates_sharp),
+         title: Text('Lifestyle Changes For Pco'),
+         onTap: ()=>
+             Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>lifestylechanges()))
 
      ),
    ],

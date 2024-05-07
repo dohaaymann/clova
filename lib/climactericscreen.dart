@@ -29,11 +29,7 @@ class climactericscreen extends StatelessWidget{
 
             ),),
           ],
-
         ),
-
-
-
       ),
       body:climactericquestions(),
 
