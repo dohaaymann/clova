@@ -43,7 +43,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen2> {
     try {
       var request = http.MultipartRequest(
         'POST',
-        Uri.parse('https://4587-197-59-83-142.ngrok-free.app/api'),
+        Uri.parse('https://ffbb-2c0f-fc89-8017-d37-6977-c0e3-7076-d972.ngrok-free.app/api'),
       );
 
       request.files.add(await http.MultipartFile.fromPath(
@@ -108,9 +108,9 @@ class _ImageUploadScreenState extends State<ImageUploadScreen2> {
                 ? Text(
               '\n$_responseText',
               style:TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: Colors.pink
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.pink
               ),
               textAlign: TextAlign.center,
             )
@@ -121,5 +121,3 @@ class _ImageUploadScreenState extends State<ImageUploadScreen2> {
     );
   }
 }
-
-

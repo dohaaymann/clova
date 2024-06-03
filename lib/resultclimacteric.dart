@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:walid_project/climactericquestions.dart';
+import 'package:walid_project/homescreen.dart';
 
 
 class resultclimacteric extends StatefulWidget {
@@ -52,7 +53,35 @@ class _resultState extends State<resultclimacteric> {
 
 
               ),
+
             ),
+            SizedBox(height: 50,),
+            Center(
+              child: InkWell(onTap: (){
+                Navigator.pop(context,MaterialPageRoute(builder: (context)=>homescreen()));
+              },child:Container(width: 300,height: 60,alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(35)),
+                  gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      Colors.yellow,
+                      Colors.orange,
+                      Color(0xffE73794),
+                    ],
+                  ),
+                ),
+                child: Text(
+                  'Back to Homescreen',
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              ),
+            )
 
   ])
 

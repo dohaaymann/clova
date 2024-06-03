@@ -24,7 +24,7 @@ class _testsState extends State<tests> {
                   '${widget.text1}',
 
                   style: TextStyle(color: Colors.black,
-                  fontSize: 20,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold),
                 ),
                ] ),

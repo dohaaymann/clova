@@ -71,7 +71,7 @@ class _homescreenState extends State<homescreen> {
 
 
                            InkWell (
-                               child:  tests(text1:'Climacteric', image1: 'image/climacteric.png',
+                               child:  tests(text1:'Premenopuase stage (Climacteric)', image1: 'image/climacteric.png',
                                ),
                              onTap:(){ Navigator.push(context,MaterialPageRoute(builder: (context)=>climactericscreen()));
                            } ),

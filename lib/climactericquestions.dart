@@ -120,7 +120,7 @@ class _climactericquestionsState extends State<climactericquestions> {
         Center(child: InkWell(onTap: (){
     setState(() {
       if(age1==null||cycleregular1==null||cycleduration1==null||
-      cycleduration1==null){
+      ovariandisorder1==null){
         result1='Please answer all of The Questions';
       }
     else if (age1 == 'yes' && cycleregular1 == 'No' && cycleduration1 == 'No' &&

@@ -13,7 +13,6 @@ class Onboarding_1 extends StatefulWidget {
 }
 
 class _Onboarding_1State extends State<Onboarding_1> {
-  int numberIndex = 0;
   var _controller = PageController();
 
   @override
@@ -58,12 +57,16 @@ class _Onboarding_1State extends State<Onboarding_1> {
                         contents[a].image
                         ),
                       Align(
-                        child: Text(
-                          contents[a].title,textAlign: TextAlign.center,
+                        child:Text(
+                          numberIndex==0?'Ovarian Disorders are diseases or conditions that primarily affect the Ovaries ,Ovarian Disorders are very common' :
+                              'Clova predicts Polycystic Ovary Syndrome (PCOs)and premenopuase stage (Climacteric)',
                           style: TextStyle(
-                            fontSize:20,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
+
                           ),
+                          textAlign:TextAlign.center,
+
                         ),
                       ),
                     ],
@@ -129,5 +132,10 @@ class _Onboarding_1State extends State<Onboarding_1> {
               ),
             );
   }
-}
+  void textsonboarding(){
+    if(numberIndex==0){
 
+    }
+  }
+}
+int numberIndex=0;
