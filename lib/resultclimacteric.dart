@@ -15,9 +15,9 @@ class _resultState extends State<resultclimacteric> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFFD8DF),
+      backgroundColor: Colors.white,
       appBar:AppBar(
-        backgroundColor: Color(0xffFFD8DF),
+        backgroundColor: Colors.white,
         centerTitle: true,title: Text("The Result",style: TextStyle(fontWeight: FontWeight.bold),),),
       body: Center(child: Column(children: [
         SizedBox(height:100,),
@@ -33,7 +33,7 @@ class _resultState extends State<resultclimacteric> {
              child: Text(' Your Climacteric Prediction Is:'
                 ,
               style: TextStyle(
-                fontSize: 27,
+                fontSize: 17,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
@@ -45,7 +45,7 @@ class _resultState extends State<resultclimacteric> {
               child: Text('*${result1}*'
                 ,
                 style: TextStyle(
-                  fontSize: 27,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                   color: Colors.pink
                 ),

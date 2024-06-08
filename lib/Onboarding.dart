@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -58,14 +60,12 @@ class _Onboarding_1State extends State<Onboarding_1> {
                         ),
                       Align(
                         child:Text(
-                          numberIndex==0?'Ovarian Disorders are diseases or conditions that primarily affect the Ovaries ,Ovarian Disorders are very common' :
-                              'Clova predicts Polycystic Ovary Syndrome (PCOs)and premenopuase stage (Climacteric)',
+                          contents[a].title,textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
 
                           ),
-                          textAlign:TextAlign.center,
 
                         ),
                       ),

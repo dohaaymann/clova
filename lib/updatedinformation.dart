@@ -9,13 +9,13 @@ class updatedinformation extends StatelessWidget{
     // TODO: implement build
     return   Container(
         child: Scaffold(
-            backgroundColor:  Color(0xffFFD8DF),
+            backgroundColor:  Colors.white,
             appBar:AppBar(
               leading: IconButton( icon: Icon(Icons.arrow_back,
                 color: Colors.black,), onPressed: () {
                 Navigator.push(context,MaterialPageRoute(builder: (context)=>homescreen()));
               },),
-              backgroundColor: Color(0xffFFD8DF),
+              backgroundColor: Colors.white,
             ),
             extendBodyBehindAppBar: true,
 

@@ -31,7 +31,9 @@ class _signupState extends State<signup> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        body:Column(
+        body: SingleChildScrollView(
+        child:
+        Column(
           children: [
             Image.asset("image/signup.jpeg",fit:BoxFit.contain,),
             Padding(
@@ -136,7 +138,8 @@ class _signupState extends State<signup> {
               ),
             ),
           ],
-        )
+        ),
+        ),
     );
   }
 }

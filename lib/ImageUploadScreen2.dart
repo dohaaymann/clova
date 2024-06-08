@@ -43,7 +43,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen2> {
     try {
       var request = http.MultipartRequest(
         'POST',
-        Uri.parse('https://ffbb-2c0f-fc89-8017-d37-6977-c0e3-7076-d972.ngrok-free.app/api'),
+        Uri.parse('https://2e1a-41-33-165-169.ngrok-free.app/api'),
       );
 
       request.files.add(await http.MultipartFile.fromPath(
@@ -74,7 +74,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFFFFD8DF),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -82,7 +82,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen2> {
             Navigator.pop(context, MaterialPageRoute(builder: (Context) => resultpco()));
           },
         ),
-        backgroundColor: Color(0XFFFFD8DF),
+        backgroundColor: Colors.white,
         title: Text('Ultrasound result'),
         centerTitle: true,
       ),
@@ -115,8 +115,11 @@ class _ImageUploadScreenState extends State<ImageUploadScreen2> {
               textAlign: TextAlign.center,
             )
                 : Container(),
+
           ],
+
         ),
+
       ),
     );
   }

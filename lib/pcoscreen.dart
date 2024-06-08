@@ -33,7 +33,9 @@ class pcoscreen1 extends StatelessWidget{
             ],
           ),
         ),
-        body:pcoquestions(),
+        body:SingleChildScrollView(
+          child:
+    pcoquestions(),)
         );
 
   }

@@ -7,17 +7,20 @@ class resultpco extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Color(0xffFFD8DF),
+      backgroundColor: Colors.white,
       appBar:AppBar(
-        backgroundColor: Color(0xffFFD8DF),
+        backgroundColor: Colors.white,
         centerTitle: true,title: Text("The Result",style: TextStyle(fontWeight: FontWeight.bold),),),
-      body: Center(child: Column(children: [
+      body:
+          SingleChildScrollView(
+    child:
+      Center(child: Column(children: [
         SizedBox(height:100,),
         Center(child: Image.asset('image/pco.png')),
         Center(
           child: Text(' Your Pco Prediction Is :',
             style: TextStyle(
-              fontSize: 27,
+              fontSize: 17,
               fontWeight: FontWeight.bold,
 
             ),
@@ -27,19 +30,21 @@ class resultpco extends StatelessWidget{
         Center(
           child: Text('*${result2}*',
             style: TextStyle(
-              fontSize: 27,
+              fontSize: 25,
               fontWeight: FontWeight.bold,
               color: Colors.pink
 
             ),
+            textAlign: TextAlign.center,
           ),
         ), SizedBox(height: 330,)
         ,Center(
-          child: Text('    Please Upload your ultrasound test for an accurate prediction',
+          child: Text('Please Upload your ultrasound test for an accurate prediction',
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.bold,
             ),
+            textAlign: TextAlign.center,
 
           ),
         ),
@@ -69,7 +74,7 @@ class resultpco extends StatelessWidget{
           ),
           ),)
 
-      ],),),
+      ],),),)
     );
 
   }

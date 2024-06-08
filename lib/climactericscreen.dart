@@ -31,7 +31,10 @@ class climactericscreen extends StatelessWidget{
           ],
         ),
       ),
-      body:climactericquestions(),
+      body:SingleChildScrollView(
+        child:
+      climactericquestions(),
+      )
 
     );
   }

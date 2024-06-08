@@ -59,6 +59,8 @@ class _pcoquestion3State extends State<pcoquestion3> {
     ),
         ),
       body:
+          SingleChildScrollView(
+    child:
       Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -217,7 +219,7 @@ class _pcoquestion3State extends State<pcoquestion3> {
            ),
          ),
          ),),
-      ])
+      ]))
     );
 
   }

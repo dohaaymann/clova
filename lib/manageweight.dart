@@ -7,9 +7,9 @@ class manageweight extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Color(0xffFFD8DF),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor:  Color(0xffFFD8DF),
+        backgroundColor:  Colors.white,
         leading:IconButton(
           icon: Icon(Icons.arrow_back,
             color: Colors.black,),

@@ -28,7 +28,9 @@ class _loginState extends State<login> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Column(
+        body:SingleChildScrollView(
+        child:
+        Column(
           children: [
             Image.asset(
               "image/login.jpeg",
@@ -36,7 +38,9 @@ class _loginState extends State<login> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 40, right: 40),
-              child: Column(
+              child:SingleChildScrollView(
+                child:
+                Column(
                 children: [
                   SizedBox(
                     height: 25,
@@ -182,7 +186,7 @@ class _loginState extends State<login> {
                             child: Text(
                               "Sign up",
                               style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xffE73794)),
                             ))
@@ -192,7 +196,9 @@ class _loginState extends State<login> {
                 ],
               ),
             ),
+            ),
           ],
+        ),
         ));
   }
 }

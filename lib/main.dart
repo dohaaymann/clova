@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-        initialRoute:homescreen.Routname,
+        initialRoute:Splash_Screen.Routname,
       routes: {
         Splash_Screen.Routname:(context)=>Splash_Screen(),
         homescreen.Routname:(context)=>homescreen(),

@@ -38,7 +38,8 @@ class _climactericquestionsState extends State<climactericquestions> {
               fontWeight: FontWeight.w600
           ),
         ),
-        questionborder(question1: '1- Is your Age from 45 to 50?'),
+
+      questionborder(question1: '1- Is your Age from 45 to 50?'),
         Row(
             children: [
               SizedBox(width: 80,),
@@ -167,7 +168,9 @@ class _climactericquestionsState extends State<climactericquestions> {
         ),
 
 
+
       ],);
+
   }
 
   }

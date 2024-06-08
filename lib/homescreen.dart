@@ -71,11 +71,11 @@ class _homescreenState extends State<homescreen> {
 
 
                            InkWell (
-                               child:  tests(text1:'Premenopuase stage (Climacteric)', image1: 'image/climacteric.png',
+                               child:  tests(text1:'Premenopause stage (Climacteric)', image1: 'image/climacteric.png',
                                ),
                              onTap:(){ Navigator.push(context,MaterialPageRoute(builder: (context)=>climactericscreen()));
                            } ),
-                           InkWell( child: tests(text1: 'Polycystic Ovary Syndrome', image1:'image/pco.png'),
+                           InkWell( child: tests(text1: 'Polycystic Ovary Syndrome (PCOs)', image1:'image/pco.png'),
                                onTap: (){ Navigator.push(context,MaterialPageRoute(builder:(context)=>pcoscreen1()));}, ),
                        Container(
                            child:  Image.asset('image/homescreenimage.jpeg',
